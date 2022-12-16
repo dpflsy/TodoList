@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--DTO 리턴 값을 카멜 케이스로 변환-->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+        <!--ResultType이 HashMap 일 때 값이 null일 경우 null을 포함시켜 return-->
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+</configuration>

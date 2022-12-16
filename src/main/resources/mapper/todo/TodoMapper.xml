@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dpflsy.todo.mapper.TodoMapper">
+    <!--할 일 전체 조회-->
+    <select id="getTodoList" resultType="com.dpflsy.todo.domain.Todo">
+        SELECT id
+             , item
+             , isCompleted
+          FROM TODO;
+    </select>
+
+    <!--특정 할 일 조회-->
+    <select id="getOneTodoList" resultType="com.dpflsy.todo.domain.Todo">
+        SELECT id
+             , item
+             , isCompleted
+         FROM TODO
+        WHERE id = #{id};
+    </select>
+
+    <!--할 일 저장-->
+    <insert id="insertTodoList" parameterType="com.dpflsy.todo.domain.Todo">
+        INSERT INTO TODO
+                ( item
+                , isCompleted
+        ) VALUES
+                ( #{item}
+                , 'N'
+        )
+    </insert>
+
+    <!--특정 할 일 수정-->
+    <update id="updateTodoList" parameterType="com.dpflsy.todo.domain.Todo">
+        UPDATE TODO
+           SET isCompleted = 'Y'
+         WHERE id = #{id}
+    </update>
+
+    <!--특정 할 일 삭제-->
+    <delete id="deleteTodoList" parameterType="long">
+        DELETE FROM TODO
+         WHERE id = #{id}
+    </delete>
+</mapper>
