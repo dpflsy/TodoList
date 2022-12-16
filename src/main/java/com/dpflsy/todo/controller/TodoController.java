@@ -19,11 +19,11 @@ public class TodoController {
         return todoService.getTodoList();
     }
 
-    //TODO: 한개만 조회하는 메서드 만들기
     @GetMapping("/{id}")
     public List<Todo> getOneTodoList(@PathVariable Long id) {
         return todoService.getOneTodoList(id);
     }
+
     @PostMapping("/insert")
     public String insertTodoList(Todo todo) {
         todoService.insertTodoList(todo);
