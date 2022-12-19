@@ -11,6 +11,9 @@
 + 특이사항
   + 주로 인터페이스로 구현되는 서비스 영역을 그냥 클래스 하나로 구현함
   + MyBatis를 이용해 SQL Mapper형태로 구현
+  + 데이터 수정시 @PutMapping이 아닌 @PatchMapping을 사용하였음
+    + PutMapping의 경우 수정하려는 컬럼을 제외한 나머지는 NULL로 전달되기 때문에
+    + 일부 데이터만 수정할 경우 @PatchMapping을 사용하는 것이 좋다
   
 + 구성
   + Presentation Layer 
