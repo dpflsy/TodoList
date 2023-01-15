@@ -2,19 +2,21 @@ package com.dpflsy.todo.controller;
 
 import com.dpflsy.todo.domain.Todo;
 import com.dpflsy.todo.service.TodoService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @RequestMapping("/api/todo")
 @RestController
 public class TodoController {
 
     private final TodoService todoService;
 
-    @GetMapping()
+    public TodoController(TodoService todoService) {
+        this.todoService = todoService;
+    }
+
+    @GetMapping("/")
     public List<Todo> getTodoList() {
         return todoService.getTodoList();
     }
