@@ -33,6 +33,6 @@ class TodoServiceTest {
         String testItem = "스프링부트 공부하기";
         String testBoolean = "Y";
         assertThat(testItem.equals(todoOneList.get(0).getItem()));
-        assertThat(testBoolean.equals(todoOneList.get(1).getIsCompleted()));
+        assertThat(testBoolean.equals(todoOneList.get(0).getIsCompleted()));
     }
 }
