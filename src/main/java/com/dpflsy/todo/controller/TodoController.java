@@ -16,7 +16,7 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Todo> getTodoList() {
         return todoService.getTodoList();
     }
