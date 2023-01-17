@@ -13,14 +13,26 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @SpringBootTest
 @AutoConfigureMockMvc
 class TodoServiceTest {
+
     @Autowired
     private TodoMapper todoMapper;
-
+    private static final Long testId = 1L;
     @Test
     @DisplayName("todoList 전체 조회해보기")
     void getTodoList() {
         // 전체 조회해보기
         List<Todo> todoList = todoMapper.getTodoList();
         assertThat(todoList.size() > 0);
+    }
+
+    @Test
+    @DisplayName("todoList 단건 조회해보기")
+    void getOneTodoList() {
+        // 단건 조회해보기
+        List<Todo> todoOneList = todoMapper.getOneTodoList(testId);
+        String testItem = "스프링부트 공부하기";
+        String testBoolean = "N";
+        assertThat(testItem.equals(todoOneList.get(0).getItem()));
+        assertThat(testBoolean.equals(todoOneList.get(0).getIsCompleted()));
     }
 }
