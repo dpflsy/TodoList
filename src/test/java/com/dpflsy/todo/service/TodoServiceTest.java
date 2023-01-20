@@ -32,6 +32,7 @@ class TodoServiceTest {
         List<Todo> todoOneList = todoMapper.getOneTodoList(testId);
         String testItem = "스프링부트 공부하기";
         String testBoolean = "Y";
+        System.out.println(testItem);
         assertThat(testItem.equals(todoOneList.get(0).getItem()));
         assertThat(testBoolean.equals(todoOneList.get(0).getIsCompleted()));
     }
