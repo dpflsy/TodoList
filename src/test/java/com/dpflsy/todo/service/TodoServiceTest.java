@@ -2,6 +2,7 @@ package com.dpflsy.todo.service;
 
 import com.dpflsy.todo.domain.Todo;
 import com.dpflsy.todo.mapper.TodoMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,22 @@ class TodoServiceTest {
 
     @Autowired
     private TodoMapper todoMapper;
+
     private static final Long testId = 1L;
+
+    @Test
+    @DisplayName("todoList 데이터 insert")
+    void insertTodoList() {
+        Todo test = Todo.builder()
+                    .item("테스트 데이터").build();
+        todoMapper.insertTodoList(test);
+        List<Todo> todoList = todoMapper.getTodoList();
+        for (int i=0; i<todoList.size(); i++) {
+            System.out.println(todoList.get(i));
+        }
+
+    }
+
     @Test
     @DisplayName("todoList 전체 조회해보기")
     void getTodoList() {

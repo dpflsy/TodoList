@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db-mysql:
+    platform: linux/x86_64
+    image: mysql:8.0.28
+    environment:
+      MYSQL_HOST: jdbc:mysql://localhost:3306/todo?&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+      MYSQL_DATABASE: todo
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Abcd123@
+      MYSQL_ROOT_PASSWORD: Abcd123@
+    ports:
+      - "3306:3306"
+    networks:
+      - test_network
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db-mysql
+    networks:
+      - test_network
+
+networks:
+  test_network:
+    driver: bridge
