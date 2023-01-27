@@ -51,4 +51,8 @@ class TodoServiceTest {
         assertThat(testItem.equals(todoOneList.get(0).getItem()));
         assertThat(testBoolean.equals(todoOneList.get(0).getIsCompleted()));
     }
+
+    void test(){
+        System.out.println("test");
+    }
 }
