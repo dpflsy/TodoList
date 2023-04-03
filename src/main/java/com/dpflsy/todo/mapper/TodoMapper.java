@@ -11,7 +11,7 @@ import java.util.List;
 public interface TodoMapper {
     public List<Todo> getTodoList();
     public List<Todo> getOneTodoList(Long id);
-    public int insertTodoList(Todo params);
-    public int updateTodoList(Todo params);
+    public int insertTodoList(Todo todo);
+    public int updateTodoList(Todo todo);
     public int deleteTodoList(Long id);
 }

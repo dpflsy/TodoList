@@ -10,8 +10,8 @@ public class MySQLConnectionTest {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     // DB 경로
     private static final String URL = "jdbc:mysql://localhost:3306/todo?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
-    private static final String USER = "USER";
-    private static final String PASSWORD = "PASSWORD";
+    private static final String USER = "root";
+    private static final String PASSWORD = "Abcd123@";
 
     @Test
     public void testConnection() throws Exception {
